@@ -1,9 +1,9 @@
 services:
 
-  bitcoin-client:
-    image: bitcoin
-    container_name: bitcoin
-    hostname: bitcoin
+  digibyte-client:
+    image: digibyte
+    container_name: digibyte
+    hostname: digibyte
     build:
       context: .
       dockerfile: ./Dockerfile

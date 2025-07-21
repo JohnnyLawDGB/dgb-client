@@ -1,6 +1,6 @@
-# Bitcoin Docker container
+# DigiByte Docker container
 
-A Docker container running [Bitcoin][bitcoin] as a service and exposing
+A Docker container running [DigiByte][digibyte] as a service and exposing
 the REST API.
 
 ## Prerequisites
@@ -12,7 +12,7 @@ Ensure that a user `dockeruser` with ID `10000` exists on your local system.
 
 ## Configuration
 
-Modify `docker/bitcoin.conf` according to your environment
+Modify `docker/client.conf` according to your environment
 (see [doc][bitcoin-conf]).
 
 Configure `rpcallowip=...` to allow the client/daemon to accept
@@ -33,16 +33,16 @@ settings a Docker Compose override file can be used, e.g.
 version: "3.1"
 
 services:
-  bitcoin-client:
+  digibyte-client:
     volumes:
-      - /var/data/graphsense/clients/btc:/opt/graphsense/data
+      - /var/data/graphsense/clients/dgb:/opt/graphsense/data
 ```
 
 The data directory on the host system must be writeable by user `dockeruser`.
 
 ## Usage
 
-Building the docker container (a tagged GitHub version of Bitcoin is
+Building the docker container (a tagged GitHub version of DigiByte is
 specified in `docker/Makefile`):
 
     docker-compose build
@@ -56,6 +56,6 @@ Showing log information:
     docker-compose logs
 
 
-[bitcoin]: https://bitcoin.org
+[digibyte]: https://digibyte.org
 [docker]: https://www.docker.com
 [bitcoin-conf]: https://en.bitcoin.it/wiki/Running_Bitcoin#Bitcoin.conf_Configuration_File

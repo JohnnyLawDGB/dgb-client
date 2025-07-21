@@ -1,9 +1,9 @@
 FROM alpine:3.20
-LABEL org.opencontainers.image.title="btc-client"
+LABEL org.opencontainers.image.title="dgb-client"
 LABEL org.opencontainers.image.maintainer="contact@ikna.io"
 LABEL org.opencontainers.image.url="https://www.ikna.io/"
-LABEL org.opencontainers.image.description="Dockerized Bitcoin client"
-LABEL org.opencontainers.image.source="https://github.com/graphsense/btc-client"
+LABEL org.opencontainers.image.description="Dockerized DigiByte client"
+LABEL org.opencontainers.image.source="https://github.com/graphsense/dgb-client"
 
 ARG UID=10000
 
@@ -31,8 +31,8 @@ RUN apk --no-cache --virtual build-dependendencies add \
         grep && \
     cd /tmp; make install && \
     rm -rf /tmp/src && \
-    strip /usr/local/bin/*bitcoin* && \
+    strip /usr/local/bin/*digibyte* && \
     apk del build-dependendencies
 
 USER dockeruser
-CMD ["bitcoind", "-conf=/opt/graphsense/client.conf", "-datadir=/opt/graphsense/data", "-rest"]
+CMD ["digibyted", "-conf=/opt/graphsense/client.conf", "-datadir=/opt/graphsense/data", "-rest"]
